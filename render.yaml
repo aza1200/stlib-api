@@ -1,0 +1,22 @@
+databases:
+  - name: stlib
+    databaseName: stlib
+    user: stlib
+    region: singapore
+
+services:
+  - type: web
+    name: stlib
+    env: python
+    region: singapore 
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars: 
+      - key: DATABASE_URL
+        fromDatabase:
+          name: stlib
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
