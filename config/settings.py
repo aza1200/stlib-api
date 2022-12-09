@@ -111,7 +111,7 @@ if DEBUG:
 else:
     DATABASES = {
         'dafault': dj_database_url.config(
-            connect_max_age = 600,
+            conn_max_age = 600,
         )
     }
 
