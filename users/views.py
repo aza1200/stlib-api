@@ -135,5 +135,9 @@ class JWTLogIn(APIView):
         else:
             return Response({"error":"wrong password"})
         
+class KaKaoLogin(APIView):
+
+    def post(self, request):
+        code = request.data.get('code')
         
         

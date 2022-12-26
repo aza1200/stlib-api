@@ -6,7 +6,6 @@ class TinyUserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = (
-            "name",
             "avatar",
             "username"
         )
@@ -20,6 +19,7 @@ class PrivateUserSerializer(ModelSerializer):
             "is_staff",
             "id",
             "is_active",
+            "name",
             "first_name",
             "last_name",
             "groups",
